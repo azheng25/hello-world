@@ -1,0 +1,83 @@
+\input{nXstuff}
+\usepackage{epstopdf}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{amssymb}
+\usepackage{setspace}
+%\doublespace
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\usepackage{graphicx}
+\setcounter{secnumdepth}{1}
+\author{Angela Zheng}
+\title{Calibration}
+
+\begin{document}
+\maketitle
+\newgeometry{margin=1cm} % modify this if you need even more space
+\begin{landscape}
+
+\begin{table}[h]
+\centering
+\caption{\textsc{External}}
+\label{my-label}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Parameter & Value & Description \\ \midrule
+$\b$          & 0.75      & time period=20 years ($0.985^{20}$)   \\
+$w_o/w_y$     & 1.12		& life-cycle earnings (from Restuccia et al. for 16 years)\\
+$\g_a$		& 0.7		& fraction of tax revenue going to amenities (NYC tax, 0.3 is for schools) \\
+$\g_f$  	& 0.09		& quality of school from government (such that total federal and state is fifty percent of total school expenditures) \\
+
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{\textsc{Internal Calibration to Match Moments}}
+\label{my-label}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Parameter & Value & Description & Target  \\ \midrule
+$\g_e$          & 0.1  & weight of education investment in human capital    & match average consumer expenditure on education (CES)=0.05  \\
+$\rho$     & 0.3	& persistence of ability	& intergenerational mobility 0.5-0.6\\
+$\delta$		& 0.5	& importance of ability in human capital formation	& also seems to target IGM \\
+$\sigma_a$  	& 1.7	& std dev of ability & inequality? \\
+$\a$			&0.95	 & altruism		& wealth? \\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[h]
+\centering
+\caption{\textsc{Moment Matching }}
+\label{my-label}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Moment & Data & Model  \\ \midrule
+Education expenditures         & 0.05  & 0.0685    \\
+Intergenerational Mobility     & 0.5	& 0.65	\\
+Gini(income)		& 0.48	& 0.62	\\
+Gini(wealth) 	& 0.85	& 0.57 \\
+Std(log income)		& 1.5	 & 1.37	\\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\end{landscape}
+\restoregeometry
+\begin{itemize}
+\item Nbhd 1 -0.07
+\item Nbhd 2 -0.161
+\item Nbhd 3 0.25
+\end{itemize}
+
+\end{document}
